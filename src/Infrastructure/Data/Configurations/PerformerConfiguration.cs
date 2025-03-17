@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TicketPrimeauth.Domain.Entities;
 using TicketPrimeauth.Infrastructure.Identity;
 
-namespace TicketPrimeauth.Infrastructure;
+namespace TicketPrimeauth.Infrastructure.Data.Configurations;
 
 public class PerformerConfiguration : IEntityTypeConfiguration<Performer>
 {

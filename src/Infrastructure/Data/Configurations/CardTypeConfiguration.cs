@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TicketPrimeauth.Domain.Entities;
 
-namespace TicketPrimeauth.Infrastructure;
+namespace TicketPrimeauth.Infrastructure.Data.Configurations;
 
 public class CardTypeConfiguration : IEntityTypeConfiguration<CardType>
 {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TicketPrimeauth.Domain.Entities;
 using TicketPrimeauth.Infrastructure.Identity;
 
-namespace TicketPrimeauth.Infrastructure;
+namespace TicketPrimeauth.Infrastructure.Data.Configurations;
 
 public class PaymentMethodConfiguration : IEntityTypeConfiguration<PaymentMethod>
 {
@@ -14,8 +14,9 @@ public class PaymentMethodConfiguration : IEntityTypeConfiguration<PaymentMethod
         builder.Property(s => s.UserId)
             .IsRequired();
 
-        builder.Property(s => s.CardTypeId)
-            .IsRequired();
+        builder.HasOne<CardType>()
+            .WithMany()
+            .HasForeignKey(pm => pm.CardTypeId);
 
         builder.Property(pm => pm.CardNumber)
             .IsRequired();

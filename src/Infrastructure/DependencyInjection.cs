@@ -1,13 +1,13 @@
-﻿using TicketPrimeauth.Application.Common.Interfaces;
-using TicketPrimeauth.Domain.Constants;
-using TicketPrimeauth.Infrastructure.Data;
-using TicketPrimeauth.Infrastructure.Data.Interceptors;
-using TicketPrimeauth.Infrastructure.Identity;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using TicketPrimeauth.Application.Common.Interfaces;
+using TicketPrimeauth.Domain.Constants;
+using TicketPrimeauth.Infrastructure.Data;
+using TicketPrimeauth.Infrastructure.Data.Interceptors;
+using TicketPrimeauth.Infrastructure.Identity;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -15,8 +15,8 @@ public static class DependencyInjection
 {
     public static void AddInfrastructureServices(this IHostApplicationBuilder builder)
     {
-        var connectionString = builder.Configuration.GetConnectionString("TicketPrimeauthDb");
-        Guard.Against.Null(connectionString, message: "Connection string 'TicketPrimeauthDb' not found.");
+        var connectionString = builder.Configuration.GetConnectionString("TicketPrimeDb");
+        Guard.Against.Null(connectionString, message: "Connection string 'TicketPrimeDb' not found.");
 
         builder.Services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         builder.Services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
